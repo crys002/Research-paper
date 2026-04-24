@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindGuard – Early Mental Health Risk Detection</title>
+  <meta name="description" content="Early Mental Health Risk Detection Using NLP-Based Deep Learning Models." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Chart.js CDN (works offline if cached; we'll also bundle a fallback) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">🧠</span>
+    <span class="brand-name">MindGuard</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+    <li><a href="#demo" class="nav-link" data-section="demo">Live Demo</a></li>
+    <li><a href="#results" class="nav-link" data-section="results">Results</a></li>
+    <li><a href="#models" class="nav-link" data-section="models">Models</a></li>
+    <li><a href="#team" class="nav-link" data-section="team">Team</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="home" class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag animate-fade-up">
+      <span class="pulse-dot"></span> AI-Powered Mental Health NLP System
+    </div>
+    <h1 class="hero-title animate-fade-up delay-1">
+      Early Mental Health<br />
+      <span class="gradient-text">Risk Detection</span>
+    </h1>
+    <p class="hero-subtitle animate-fade-up delay-2">
+      Using NLP-Based Deep Learning Models — BiLSTM, CNN-BiLSTM, BERT, RoBERTa &amp; MentalBERT
+    </p>
+    <div class="hero-cta animate-fade-up delay-4">
+      <a href="#demo" class="btn btn-primary" id="try-demo-btn">Try Live Demo</a>
+      <a href="#results" class="btn btn-ghost">View Results</a>
+    </div>
+  </div>
+  <div class="hero-visual animate-fade-up delay-3">
+    <div class="brain-display">
+      <div class="brain-ring ring-1"></div>
+      <div class="brain-ring ring-2"></div>
+      <div class="brain-ring ring-3"></div>
+      <div class="brain-center">🧠</div>
+      <div class="floating-chip chip-1">BERT</div>
+      <div class="floating-chip chip-2">NLP</div>
+      <div class="floating-chip chip-3">BiLSTM</div>
+      <div class="floating-chip chip-4">91.2%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STATS BAR ══════════════ -->
+<section class="stats-bar">
+  <div class="stats-container">
+    <div class="stat-item">
+      <span class="stat-number" data-target="5">0</span>
+      <span class="stat-label">DL Models</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="2">0</span>
+      <span class="stat-label">Datasets</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="18400">0</span>
+      <span class="stat-label">Training Posts</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="89">0</span><span class="stat-suffix">%</span>
+      <span class="stat-label">Peak F1-Score</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="96">0</span><span class="stat-suffix">%</span>
+      <span class="stat-label">Peak AUC-ROC</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Research Overview</span>
+      <h2 class="section-title">Why This Matters</h2>
+      <p class="section-subtitle">Mental health disorders affect 1 in 4 people globally — early detection can save lives.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card card-glow" data-delay="0">
+        <div class="card-icon">🔍</div>
+        <h3>Problem Statement</h3>
+        <p>Depression, anxiety, and suicidal ideation are severely underdiagnosed. Social media platforms contain valuable early warning signals that can be detected using AI.</p>
+      </div>
+      <div class="about-card card-glow" data-delay="1">
+        <div class="card-icon">⚙️</div>
+        <h3>Methodology</h3>
+        <p>We benchmark 5 state-of-the-art NLP architectures — from traditional BiLSTM to domain-specialized MentalBERT — across two real-world mental health datasets.</p>
+      </div>
+      <div class="about-card card-glow" data-delay="2">
+        <div class="card-icon">📦</div>
+        <h3>Datasets Used</h3>
+        <p><strong>CLPsych 2015:</strong> 1,146 ReachOut.com posts (forum peer support). <strong>RSDD:</strong> 18,400 Reddit posts from mental health subreddits. Both binary classified.</p>
+      </div>
+      <div class="about-card card-glow" data-delay="3">
+        <div class="card-icon">🎯</div>
+        <h3>Key Finding</h3>
+        <p>MentalBERT (domain-pretrained on mental health text) consistently outperforms general-purpose transformers, proving that domain adaptation is critical in clinical NLP.</p>
+      </div>
+    </div>
+    <div class="pipeline-section">
+      <h3 class="pipeline-title">System Pipeline</h3>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-icon">📥</div>
+          <div class="step-label">Raw Text Input</div>
+          <div class="step-sub">Reddit / Forum Posts</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">🧹</div>
+          <div class="step-label">Preprocessing</div>
+          <div class="step-sub">Clean, Tokenize, Encode</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">🤖</div>
+          <div class="step-label">Model Inference</div>
+          <div class="step-sub">BiLSTM / BERT / MentalBERT</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">⚠️</div>
+          <div class="step-label">Risk Classification</div>
+          <div class="step-sub">At-Risk / Not At-Risk</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">📋</div>
+          <div class="step-label">Report</div>
+          <div class="step-sub">Confidence + Explanation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ LIVE DEMO ══════════════ -->
+<section id="demo" class="section demo-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Interactive Demo</span>
+      <h2 class="section-title">Live Risk Analyzer</h2>
+      <p class="section-subtitle">Enter any text to analyze it for early mental health risk indicators using our NLP pipeline.</p>
+    </div>
+
+    <div class="demo-layout">
+      <!-- Input Panel -->
+      <div class="demo-input-panel">
+        <div class="input-header">
+          <label for="text-input">Text Input</label>
+          <div class="model-selector-inline">
+            <span>Model:</span>
+            <select id="model-select">
+              <option value="mentalbert">MentalBERT ⭐</option>
+              <option value="roberta">RoBERTa</option>
+              <option value="bert">BERT</option>
+              <option value="cnnbilstm">CNN-BiLSTM</option>
+              <option value="bilstm">BiLSTM</option>
+            </select>
+          </div>
+        </div>
+        <textarea
+          id="text-input"
+          placeholder="Type or paste text here… e.g., 'I have been feeling really hopeless lately and can't find a reason to keep going. Nothing seems to bring joy anymore.'"
+          rows="8"
+        ></textarea>
+        <div class="input-actions">
+          <div class="sample-buttons">
+            <span class="sample-label">Try samples:</span>
+            <button class="sample-btn" id="sample-atrisk" onclick="loadSample('atrisk')">At-Risk Sample</button>
+            <button class="sample-btn" id="sample-normal" onclick="loadSample('normal')">Normal Sample</button>
+            <button class="sample-btn" id="sample-mixed" onclick="loadSample('mixed')">Mixed Sample</button>
+          </div>
+          <button class="btn btn-primary" id="analyze-btn" onclick="analyzeText()">
+            <span id="analyze-btn-text">Analyze Text</span>
+            <div id="analyze-spinner" class="spinner hidden"></div>
+          </button>
+        </div>
+        <div id="char-count" class="char-count">0 characters</div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="demo-result-panel" id="result-panel">
+        <div class="result-placeholder" id="result-placeholder">
+          <div class="placeholder-icon" id="placeholder-icon">🔬</div>
+          <p id="placeholder-text">Results will appear here after analysis</p>
+        </div>
+
+        <div class="result-content hidden" id="result-content">
+          <!-- Risk Badge -->
+          <div class="risk-header">
+            <div class="risk-badge" id="risk-badge">
+              <span class="risk-icon" id="risk-icon">⚠️</span>
+              <div>
+                <div class="risk-label">Risk Classification</div>
+                <div class="risk-value" id="risk-value">AT RISK</div>
+              </div>
+            </div>
+            <div class="confidence-display">
+              <div class="confidence-label">Confidence</div>
+              <div class="confidence-value" id="confidence-value">87%</div>
+            </div>
+          </div>
+
+          <!-- Meter -->
+          <div class="risk-meter-section">
+            <div class="meter-labels">
+              <span>Safe</span>
+              <span>At-Risk</span>
+            </div>
+            <div class="risk-meter-track">
+              <div class="risk-meter-fill" id="risk-meter-fill"></div>
+              <div class="risk-meter-thumb" id="risk-meter-thumb"></div>
+            </div>
+          </div>
+
+          <!-- Metric Cards -->
+          <div class="metric-grid">
+            <div class="metric-mini">
+              <span class="metric-mini-label">F1-Score</span>
+              <span class="metric-mini-val" id="res-f1">—</span>
+            </div>
+            <div class="metric-mini">
+              <span class="metric-mini-label">Accuracy</span>
+              <span class="metric-mini-val" id="res-acc">—</span>
+            </div>
+            <div class="metric-mini">
+              <span class="metric-mini-label">Precision</span>
+              <span class="metric-mini-val" id="res-prec">—</span>
+            </div>
+            <div class="metric-mini">
+              <span class="metric-mini-label">Recall</span>
+              <span class="metric-mini-val" id="res-recall">—</span>
+            </div>
+          </div>
+
+          <!-- Keywords Detected -->
+          <div class="keywords-section">
+            <div class="keywords-title">⚡ Detected Risk Indicators</div>
+            <div class="keywords-list" id="keywords-list"></div>
+          </div>
+
+          <!-- Explanation -->
+          <div class="explanation-box" id="explanation-box"></div>
+
+          <!-- Disclaimer -->
+          <div class="disclaimer">
+            ⚠️ <strong>Research Demo Only.</strong> This is a simulated demo for academic purposes. Not for clinical use.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ RESULTS ══════════════ -->
+<section id="results" class="section results-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Experimental Results</span>
+      <h2 class="section-title">Model Performance</h2>
+      <p class="section-subtitle">Benchmarked across RSDD and CLPsych 2015 test partitions with 5 evaluation metrics.</p>
+    </div>
+
+    <!-- Dataset Toggle -->
+    <div class="dataset-toggle">
+      <button class="toggle-btn active" id="btn-rsdd" onclick="switchDataset('rsdd')">RSDD Dataset</button>
+      <button class="toggle-btn" id="btn-clpsych" onclick="switchDataset('clpsych')">CLPsych 2015</button>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">F1-Score Comparison</div>
+        <div style="position: relative; height: 180px; width: 100%;">
+          <canvas id="chart-f1"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">AUC-ROC Comparison</div>
+        <div style="position: relative; height: 180px; width: 100%;">
+          <canvas id="chart-auc"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="chart-card chart-radar-card">
+      <div class="chart-title">All Metrics Radar – <span id="radar-label">RSDD Dataset</span></div>
+      <div class="radar-wrap" style="height: 250px;">
+        <canvas id="chart-radar"></canvas>
+      </div>
+    </div>
+
+    <!-- Results Tables -->
+    <div class="results-tables">
+      <div class="table-card" id="table-rsdd">
+        <h3 class="table-heading">TABLE II — RSDD Test Set (n = 3,680 posts)</h3>
+        <div class="table-scroll">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>F1</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>AUC-ROC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>BiLSTM</td><td>0.779</td><td>0.783</td><td>0.772</td><td>0.787</td><td>0.864</td></tr>
+              <tr><td>CNN-BiLSTM</td><td>0.821</td><td>0.826</td><td>0.814</td><td>0.830</td><td>0.901</td></tr>
+              <tr><td>BERT</td><td>0.858</td><td>0.863</td><td>0.847</td><td>0.871</td><td>0.935</td></tr>
+              <tr><td>RoBERTa</td><td>0.874</td><td>0.878</td><td>0.861</td><td>0.889</td><td>0.948</td></tr>
+              <tr class="best-row"><td>MentalBERT ★</td><td>0.891</td><td>0.894</td><td>0.876</td><td>0.912</td><td>0.961</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="table-card hidden" id="table-clpsych">
+        <h3 class="table-heading">TABLE III — CLPsych 2015 Test Set (n = 230 posts)</h3>
+        <div class="table-scroll">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>F1</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>AUC-ROC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>BiLSTM</td><td>0.761</td><td>0.768</td><td>0.753</td><td>0.770</td><td>0.843</td></tr>
+              <tr class="best-row"><td>CNN-BiLSTM ★</td><td>0.843</td><td>0.849</td><td>0.838</td><td>0.851</td><td>0.921</td></tr>
+              <tr><td>BERT</td><td>0.801</td><td>0.806</td><td>0.795</td><td>0.808</td><td>0.889</td></tr>
+              <tr><td>RoBERTa</td><td>0.819</td><td>0.824</td><td>0.811</td><td>0.828</td><td>0.904</td></tr>
+              <tr><td>MentalBERT</td><td>0.837</td><td>0.842</td><td>0.829</td><td>0.846</td><td>0.916</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MODELS ══════════════ -->
+<section id="models" class="section models-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Architecture Overview</span>
+      <h2 class="section-title">Models We Benchmarked</h2>
+      <p class="section-subtitle">Five carefully selected architectures spanning RNN to transformer-based deep learning.</p>
+    </div>
+    <div class="models-grid">
+
+      <div class="model-card" data-model="bilstm">
+        <div class="model-header">
+          <div class="model-badge bilstm-badge">RNN</div>
+          <div class="model-score">F1: 0.779</div>
+        </div>
+        <h3 class="model-name">BiLSTM</h3>
+        <p class="model-desc">Two stacked bidirectional LSTM layers (256 hidden units each, 512 total), GloVe 300-d embeddings, dropout 0.4. Baseline recurrent model.</p>
+        <div class="model-tags">
+          <span class="tag">Bidirectional</span><span class="tag">GloVe</span><span class="tag">Seq2Seq</span>
+        </div>
+        <div class="model-bar-wrap">
+          <div class="model-bar" style="--pct: 77.9%"></div>
+          <span>77.9%</span>
+        </div>
+      </div>
+
+      <div class="model-card" data-model="cnnbilstm">
+        <div class="model-header">
+          <div class="model-badge cnn-badge">Hybrid</div>
+          <div class="model-score">F1: 0.821</div>
+        </div>
+        <h3 class="model-name">CNN-BiLSTM</h3>
+        <p class="model-desc">1D convolution (128 filters, kernels 3&amp;5) + BiLSTM. Local n-gram features combined with sequential context. Best on CLPsych short-text.</p>
+        <div class="model-tags">
+          <span class="tag">Hybrid</span><span class="tag">CNN</span><span class="tag">Short-Text</span>
+        </div>
+        <div class="model-bar-wrap">
+          <div class="model-bar" style="--pct: 82.1%"></div>
+          <span>82.1%</span>
+        </div>
+      </div>
+
+      <div class="model-card" data-model="bert">
+        <div class="model-header">
+          <div class="model-badge bert-badge">Transformer</div>
+          <div class="model-score">F1: 0.858</div>
+        </div>
+        <h3 class="model-name">BERT</h3>
+        <p class="model-desc">bert-base-uncased (12 layers, 768-d, 110M params). Fine-tuned 3 epochs with AdamW, learning rate 2e-5, batch size 16.</p>
+        <div class="model-tags">
+          <span class="tag">110M Params</span><span class="tag">Masked LM</span><span class="tag">NSP</span>
+        </div>
+        <div class="model-bar-wrap">
+          <div class="model-bar" style="--pct: 85.8%"></div>
+          <span>85.8%</span>
+        </div>
+      </div>
+
+      <div class="model-card" data-model="roberta">
+        <div class="model-header">
+          <div class="model-badge roberta-badge">Transformer</div>
+          <div class="model-score">F1: 0.874</div>
+        </div>
+        <h3 class="model-name">RoBERTa</h3>
+        <p class="model-desc">roberta-base (125M params). Improved BERT with dynamic masking, longer training, larger batches and no NSP. Fine-tuned same protocol as BERT.</p>
+        <div class="model-tags">
+          <span class="tag">125M Params</span><span class="tag">Dynamic Mask</span><span class="tag">Facebook AI</span>
+        </div>
+        <div class="model-bar-wrap">
+          <div class="model-bar" style="--pct: 87.4%"></div>
+          <span>87.4%</span>
+        </div>
+      </div>
+
+      <div class="model-card model-card-best" data-model="mentalbert">
+        <div class="model-best-glow"></div>
+        <div class="model-header">
+          <div class="model-badge mental-badge">🏆 Best</div>
+          <div class="model-score">F1: 0.891</div>
+        </div>
+        <h3 class="model-name">MentalBERT</h3>
+        <p class="model-desc">mental-bert-base-uncased pretrained on mental health Reddit/Twitter data. Same BERT-base architecture but domain-adapted vocabulary and weights.</p>
+        <div class="model-tags">
+          <span class="tag">Domain-Adapted</span><span class="tag">Mental Health</span><span class="tag">Best Model</span>
+        </div>
+        <div class="model-bar-wrap">
+          <div class="model-bar best-bar" style="--pct: 89.1%"></div>
+          <span>89.1%</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TEAM ══════════════ -->
+<section id="team" class="section team-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Research Team</span>
+      <h2 class="section-title">Meet the Authors</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" id="avatar-aakash">AT</div>
+        <div class="team-name">Aakash Thakur</div>
+        <div class="team-email">aakash1108.be22@chitkara.edu.in</div>
+        <div class="team-dept">B.E. Computer Science &amp; Engineering</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" id="avatar-akshat">AV</div>
+        <div class="team-name">Akshat Vashisht</div>
+        <div class="team-email">akshat1229.be22@chitkara.edu.in</div>
+        <div class="team-dept">B.E. Computer Science &amp; Engineering</div>
+      </div>
+      <div class="team-card supervisor-card">
+        <div class="team-avatar" id="avatar-supervisor">AK</div>
+        <div class="team-name">Dr. Ajay Kumar</div>
+        <div class="team-rp">Supervisor</div>
+        <div class="team-email">Department of CSE</div>
+        <div class="team-dept">Chitkara University, Punjab, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">🧠 MindGuard</div>
+    <div class="footer-info">
+      Early Mental Health Risk Detection Using NLP-Based Deep Learning Models<br />
+      <small>Research Project — Chitkara University, Punjab, India · 2025–26</small>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
